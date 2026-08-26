@@ -28,7 +28,6 @@ const subjectOptions = [
   'Admissions Information',
   'Course Details',
   'Schedule a Tour',
-  'Faculty Inquiry',
   'Partnership Opportunity',
   'Other',
 ];

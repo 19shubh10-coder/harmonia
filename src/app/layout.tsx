@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Harmonic Learning Studio' }],
   creator: 'Harmonic Learning Studio',
   publisher: 'Harmonic Learning Studio',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://harmonic.edu'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://harmoniclearningstudio.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',

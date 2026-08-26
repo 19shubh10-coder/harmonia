@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     const smtpPort = parseInt(process.env.SMTP_PORT || '587', 10);
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
-    const contactEmail = process.env.CONTACT_EMAIL || 'info@harmonic.edu';
+    const contactEmail = process.env.CONTACT_EMAIL || 'divyanshu@harmoniclearningstudio.com';
 
     // If SMTP is not configured, log and return success (development fallback)
     if (!smtpHost || !smtpUser || !smtpPass) {

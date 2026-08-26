@@ -12,7 +12,7 @@ export default function MapSection() {
               Find Us
             </h2>
             <p className="mt-3 text-muted dark:text-dark-text/60">
-              Located in the heart of the Symphony District, easily accessible by public transport
+              Located in Arumbakkam, Chennai — easily accessible by metro and bus
             </p>
           </div>
         </ScrollReveal>
@@ -20,7 +20,7 @@ export default function MapSection() {
         <ScrollReveal>
           <div className="relative rounded-2xl overflow-hidden shadow-lg border border-border dark:border-dark-border h-[400px] md:h-[500px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.9906849863907!2d-73.98127512344598!3d40.76517543482895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f97bdb5dc7%3A0xb6e43289bf942084!2sCarnegie%20Hall!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.452089702498!2d80.20968867489356!3d13.069600087269756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266381e09c97d%3A0x23a0064480e1b22f!2sArumbakkam%2C%20Chennai%2C%20Tamil%20Nadu%20600106!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -42,7 +42,7 @@ export default function MapSection() {
                   </svg>
                 ),
                 label: "By Car",
-                text: "Parking garage adjacent to campus. First 2 hours free for visitors.",
+                text: "Located near MMDA Colony main road. Street parking available nearby.",
               },
               {
                 icon: (
@@ -50,8 +50,8 @@ export default function MapSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 ),
-                label: "By Subway",
-                text: "57th St–7th Ave station (N, Q, R, W lines), 3-minute walk.",
+                label: "By Metro",
+                text: "Arumbakkam Metro Station (Blue Line), 5-minute walk.",
               },
               {
                 icon: (
@@ -61,7 +61,7 @@ export default function MapSection() {
                   </svg>
                 ),
                 label: "By Bus",
-                text: "Bus stops on 7th Ave (M20, M104). Short walk to campus entrance.",
+                text: "MTC buses on Anna Nagar Western Extension road. Short walk to studio.",
               },
             ].map((direction, i) => (
               <div

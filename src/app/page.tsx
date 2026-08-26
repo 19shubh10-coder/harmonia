@@ -6,8 +6,6 @@ import StatsSection from "@/components/sections/StatsSection";
 import CertificationsStrip from "./_components/CertificationsStrip";
 import StudentAchievements from "./_components/StudentAchievements";
 import TestimonialsSection from "./_components/TestimonialsSection";
-import FacultyHighlights from "./_components/FacultyHighlights";
-import UpcomingEvents from "./_components/UpcomingEvents";
 import CTABanner from "@/components/sections/CTABanner";
 import NewsletterSection from "./_components/NewsletterSection";
 
@@ -36,13 +34,7 @@ export default function HomePage() {
         {/* 7. Testimonials */}
         <TestimonialsSection />
 
-        {/* 8. Faculty Highlights */}
-        <FacultyHighlights />
-
-        {/* 9. Upcoming Events */}
-        <UpcomingEvents />
-
-        {/* 10. Exam Preparation CTA */}
+        {/* 8. Exam Preparation CTA */}
         <CTABanner
           heading="Excel in Your Trinity & ABRSM Examinations"
           description="Our structured exam preparation program has achieved a 98% success rate. Join hundreds of students who have earned distinctions in their graded examinations."
@@ -50,7 +42,7 @@ export default function HomePage() {
           ctaHref="/courses"
         />
 
-        {/* 11. Newsletter */}
+        {/* 9. Newsletter */}
         <NewsletterSection />
       </main>
     </>
