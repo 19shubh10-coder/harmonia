@@ -2,28 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Harmonic Learning Studio - Modern Course Catalog</title>
+  <title>Harmonic Learning Studio - Course Catalog</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Nunito:wght@400;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
     :root {
-      --primary: #4338ca;      /* Deep Indigo */
-      --primary-light: #e0e7ff;
-      --secondary: #f43f5e;    /* Vibrant Rose/Coral */
-      --secondary-light: #ffe4e6;
-      --dark: #0f172a;         /* Slate 900 */
-      --text: #334155;         /* Slate 700 */
-      --muted: #64748b;        /* Slate 500 */
-      --bg: #f8fafc;           /* Slate 50 */
-      --white: #ffffff;
+      --navy: #1a1f3d;
+      --gold: #c9a84c;
+      --accent: #8b5e3c;
+      --surface: #f8f6f2;
+      --background: #ffffff;
+      --muted: #6b7280;
+      --border: #e5e2dc;
+      --dark-text: #111827;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Nunito', sans-serif;
-      color: var(--text);
-      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      color: var(--dark-text);
+      background: var(--border); /* Outside pages */
       line-height: 1.6;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
@@ -34,24 +33,32 @@
     @media print {
       .page-break { page-break-before: always; }
       .no-break { page-break-inside: avoid; }
+      body { background: var(--background); }
     }
 
     .page {
       width: 210mm;
-      min-height: 297mm;
-      background: var(--white);
+      height: 297mm; /* Strict height to prevent empty space at bottom when printing A4 */
+      background: var(--background);
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      margin: 0 auto;
     }
 
+    /* Inner wrapper for padding so height isn't messed up by box-sizing if modified */
     .page-content {
       padding: 40px 50px;
       flex: 1;
       display: flex;
       flex-direction: column;
-      z-index: 2;
+      height: 100%;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, .serif {
+      font-family: 'Playfair Display', serif;
     }
 
     /* =========================================
@@ -60,26 +67,38 @@
     .cover-bg {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: var(--bg);
+      background: var(--navy);
       z-index: 1;
     }
-    .cover-shape-1 {
-      position: absolute;
-      top: -20%; right: -20%;
-      width: 80%; height: 80%;
-      background: var(--primary);
-      border-radius: 50%;
-      opacity: 0.05;
-    }
-    .cover-shape-2 {
-      position: absolute;
-      bottom: -10%; left: -20%;
-      width: 60%; height: 60%;
-      background: var(--secondary);
-      border-radius: 50%;
-      opacity: 0.05;
-    }
     
+    /* Decorative elements */
+    .cover-bg::after {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      border: 2px solid rgba(201, 168, 76, 0.1);
+      border-radius: 50%;
+    }
+    .cover-bg::before {
+      content: '';
+      position: absolute;
+      bottom: -150px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+      color: var(--background);
+    }
+
     .cover-header {
       display: flex;
       justify-content: space-between;
@@ -88,59 +107,72 @@
     }
     
     .logo {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
       font-size: 24px;
-      color: var(--dark);
+      color: var(--gold);
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    .logo-icon {
-      width: 48px; height: 48px;
-      background: var(--primary);
-      color: var(--white);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
+    
+    .cover-badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 1px solid var(--gold);
+      padding: 6px 14px;
+      border-radius: 4px;
+      color: var(--gold);
     }
 
     .cover-main {
       margin: auto 0;
     }
     .cover-eyebrow {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--secondary);
-      font-weight: 700;
-      letter-spacing: 4px;
+      color: var(--gold);
+      font-size: 12px;
       text-transform: uppercase;
-      font-size: 14px;
-      margin-bottom: 20px;
+      letter-spacing: 4px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .cover-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
     }
     .cover-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 72px;
-      font-weight: 900;
-      line-height: 1.05;
-      color: var(--dark);
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.1;
       margin-bottom: 24px;
-      letter-spacing: -2px;
+      color: var(--background);
     }
-    .cover-title span { color: var(--primary); }
+    .cover-title span {
+      color: var(--gold);
+      font-style: italic;
+    }
     .cover-desc {
-      font-size: 20px;
-      color: var(--muted);
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
       max-width: 80%;
-      font-weight: 600;
+      font-weight: 300;
+      line-height: 1.8;
     }
 
+    /* Fixed Contact Footer */
     .cover-footer {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
       margin-top: auto;
-      padding-top: 40px;
-      border-top: 2px solid var(--gray-light);
+      padding-top: 30px;
+      border-top: 1px solid rgba(201, 168, 76, 0.3);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 40px;
     }
     .cf-item {
       display: flex;
@@ -150,118 +182,114 @@
     .cf-label {
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--muted);
-      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      font-weight: 600;
     }
     .cf-val {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--dark);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--background);
     }
 
     /* =========================================
-       TYPOGRAPHY & HEADERS (INNER PAGES)
+       HEADERS (INNER PAGES)
        ========================================= */
     .page-header {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
       display: flex;
       align-items: center;
       gap: 20px;
     }
     .ph-number {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 64px;
-      font-weight: 900;
-      color: var(--primary-light);
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--surface);
       line-height: 0.8;
+      -webkit-text-stroke: 1px var(--gold);
     }
     .ph-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--dark);
-      letter-spacing: -1px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
     }
     .ph-desc {
-      font-size: 16px;
+      font-size: 14px;
       color: var(--muted);
-      font-weight: 600;
+    }
+    .section-divider {
+      height: 2px;
+      background: var(--gold);
+      width: 60px;
+      margin-bottom: 30px;
     }
 
     /* =========================================
-       CARDS GRID (COURSES)
+       COURSES GRID
        ========================================= */
     .course-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-bottom: 40px;
+      gap: 20px;
+      margin-bottom: 30px;
     }
     
     .course-card {
-      background: var(--bg);
-      border-radius: 20px;
-      padding: 24px;
-      border: 1px solid var(--gray-light);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      position: relative;
-    }
-    .course-icon-wrap {
-      width: 50px; height: 50px;
-      background: var(--white);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-      margin-bottom: 16px;
     }
     
     .course-name {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 18px;
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: 8px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     
     .course-meta {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 16px;
     }
     .c-badge {
-      font-size: 11px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      border: 1px solid var(--border);
+      background: var(--background);
+      color: var(--muted);
     }
-    .b-blue { background: #dbeafe; color: #1e3a8a; }
-    .b-purple { background: #f3e8ff; color: #581c87; }
-    .b-orange { background: #ffedd5; color: #9a3412; }
-
+    
     .course-price {
       margin-top: auto;
       padding-top: 16px;
-      border-top: 1px dashed var(--gray-light);
+      border-top: 1px dashed var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .cp-amount {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--primary);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
     }
     .cp-duration {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
-      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     /* =========================================
@@ -270,86 +298,86 @@
     .package-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 40px;
+      gap: 16px;
+      margin-bottom: 30px;
     }
 
     .pkg-card {
-      background: var(--white);
-      border: 2px solid var(--gray-light);
-      border-radius: 24px;
-      padding: 30px 24px;
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 20px;
       text-align: center;
       position: relative;
     }
     .pkg-card.highlight {
-      border-color: var(--primary);
-      box-shadow: 0 20px 25px -5px rgba(67, 56, 202, 0.1);
-      transform: scale(1.02);
+      border-color: var(--gold);
+      background: var(--surface);
+      box-shadow: 0 10px 20px rgba(26, 31, 61, 0.05);
     }
     .pkg-badge {
       position: absolute;
-      top: -14px; left: 50%;
+      top: -12px; left: 50%;
       transform: translateX(-50%);
-      background: var(--primary);
-      color: var(--white);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 6px 16px;
-      border-radius: 20px;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 4px;
       text-transform: uppercase;
       letter-spacing: 1px;
       white-space: nowrap;
     }
     .pkg-name {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--dark);
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
       margin-bottom: 8px;
     }
     .pkg-price {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 36px;
-      font-weight: 900;
-      color: var(--dark);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--gold);
       line-height: 1;
       margin-bottom: 4px;
     }
-    .pkg-price span { font-size: 16px; color: var(--muted); font-weight: 600; }
+    .pkg-price span { font-size: 14px; color: var(--muted); font-weight: 400; }
     .pkg-calc {
-      font-size: 12px;
-      color: var(--primary);
-      font-weight: 700;
+      font-size: 11px;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
       margin-bottom: 20px;
+      font-weight: 600;
     }
 
     .pkg-bonus {
-      background: var(--secondary-light);
-      color: var(--secondary);
-      font-size: 12px;
-      font-weight: 800;
-      padding: 8px;
-      border-radius: 12px;
+      background: var(--gold);
+      color: var(--background);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 6px;
+      border-radius: 4px;
       margin-bottom: 20px;
     }
 
     .pkg-features {
       text-align: left;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
+      font-size: 12px;
+      color: var(--muted);
     }
     .pkg-features div {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: flex;
       gap: 8px;
+      align-items: flex-start;
     }
     .pkg-features div::before {
       content: '✓';
-      color: var(--primary);
-      font-weight: 900;
+      color: var(--gold);
+      font-weight: 700;
     }
 
     /* =========================================
@@ -358,24 +386,24 @@
     .offers-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 16px;
     }
     .offer-box {
-      background: var(--bg);
-      border-radius: 16px;
+      background: var(--surface);
+      border-radius: 8px;
       padding: 20px;
-      border-left: 4px solid var(--secondary);
+      border-left: 3px solid var(--gold);
     }
     .offer-box h4 {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
       margin-bottom: 6px;
     }
     .offer-box p {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
-      font-weight: 600;
     }
 
     /* =========================================
@@ -383,103 +411,111 @@
        ========================================= */
     .modern-table {
       width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      border-radius: 16px;
+      border-collapse: collapse;
+      border-radius: 8px;
       overflow: hidden;
-      border: 1px solid var(--gray-light);
+      border: 1px solid var(--border);
       margin-bottom: 30px;
     }
     .modern-table th {
-      background: var(--bg);
-      color: var(--dark);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 12px;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
-      padding: 16px;
+      padding: 14px;
       text-align: left;
-      border-bottom: 2px solid var(--gray-light);
-    }
-    .modern-table td {
-      padding: 16px;
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-light);
-      font-size: 14px;
       font-weight: 600;
     }
+    .modern-table td {
+      padding: 14px;
+      background: var(--background);
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--dark-text);
+    }
     .modern-table tr:last-child td { border-bottom: none; }
+    .modern-table tr:nth-child(even) td { background: var(--surface); }
 
     .step-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-bottom: 40px;
+      gap: 16px;
+      margin-bottom: 30px;
     }
     .step-card {
       text-align: center;
+      padding: 20px 10px;
+      background: var(--surface);
+      border-radius: 8px;
+      border: 1px solid var(--border);
     }
     .step-num {
-      width: 48px; height: 48px;
-      background: var(--primary-light);
-      color: var(--primary);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 20px;
-      font-weight: 900;
-      border-radius: 16px;
+      width: 40px; height: 40px;
+      background: var(--navy);
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px;
+      margin: 0 auto 12px;
     }
     .step-card h4 {
-      font-size: 15px;
-      color: var(--dark);
-      margin-bottom: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--navy);
+      margin-bottom: 6px;
     }
     .step-card p {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
-      font-weight: 600;
     }
 
     .cta-box {
-      background: var(--primary);
-      border-radius: 24px;
-      padding: 40px;
+      background: var(--navy);
+      border-radius: 8px;
+      padding: 30px;
       text-align: center;
-      color: var(--white);
+      color: var(--background);
+      border: 1px solid var(--gold);
     }
     .cta-box h3 {
-      font-size: 28px;
-      font-weight: 900;
-      margin-bottom: 16px;
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--gold);
     }
     .cta-box p {
-      font-size: 16px;
+      font-size: 14px;
       opacity: 0.9;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
     }
     .cta-flex {
       display: flex;
       justify-content: center;
-      gap: 40px;
-      font-weight: 700;
-      font-size: 14px;
+      gap: 30px;
+      font-weight: 500;
+      font-size: 13px;
     }
     .cta-flex span {
       display: flex;
       align-items: center;
       gap: 8px;
+      color: var(--background);
     }
 
+    /* Fixed Footer Notes */
     .footer-note {
       text-align: center;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
-      font-weight: 600;
-      margin-top: auto;
+      margin-top: auto; /* Pushes footer to the bottom */
       padding-top: 20px;
+      border-top: 1px solid var(--border);
     }
+
   </style>
 </head>
 <body>
@@ -488,18 +524,13 @@
        PAGE 1: COVER
        ==================================================== -->
   <div class="page">
-    <div class="cover-bg">
-      <div class="cover-shape-1"></div>
-      <div class="cover-shape-2"></div>
-    </div>
-    
-    <div class="page-content">
+    <div class="cover-bg"></div>
+    <div class="cover-content">
       <div class="cover-header">
         <div class="logo">
-          <div class="logo-icon">🎵</div>
-          Harmonic Learning Studio
+          Harmonia
         </div>
-        <div class="cf-label" style="background: var(--white); padding: 8px 16px; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <div class="cover-badge">
           Course Catalog 2025-26
         </div>
       </div>
@@ -507,14 +538,15 @@
       <div class="cover-main">
         <div class="cover-eyebrow">Discover Your Sound</div>
         <div class="cover-title">
-          MUSIC<br/>
-          <span>REIMAGINED.</span>
+          Master the<br/>
+          <span>Art of Music.</span>
         </div>
         <div class="cover-desc">
-          Professional, one-on-one music education tailored to your goals. Honest pricing, exceptional value.
+          Professional, one-on-one music education tailored to your goals. Experience our structured curriculum with internationally recognized certifications.
         </div>
       </div>
 
+      <!-- Fixed the grid to be flex wrapping so email doesn't overlap -->
       <div class="cover-footer">
         <div class="cf-item">
           <span class="cf-label">Call Us</span>
@@ -549,15 +581,15 @@
           <div class="ph-desc">One-on-one instruction for all skill levels</div>
         </div>
       </div>
+      <div class="section-divider"></div>
 
       <div class="course-grid">
         <!-- Piano -->
         <div class="course-card">
-          <div class="course-icon-wrap">🎹</div>
-          <div class="course-name">Piano Mastery</div>
+          <div class="course-name">🎹 Piano Mastery</div>
           <div class="course-meta">
-            <span class="c-badge b-blue">All Levels</span>
-            <span class="c-badge b-purple">12 Months</span>
+            <span class="c-badge">All Levels</span>
+            <span class="c-badge">12 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -567,11 +599,10 @@
         
         <!-- Guitar -->
         <div class="course-card">
-          <div class="course-icon-wrap">🎸</div>
-          <div class="course-name">Guitar Excellence</div>
+          <div class="course-name">🎸 Guitar Excellence</div>
           <div class="course-meta">
-            <span class="c-badge b-blue">All Levels</span>
-            <span class="c-badge b-purple">10 Months</span>
+            <span class="c-badge">All Levels</span>
+            <span class="c-badge">10 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -581,11 +612,10 @@
 
         <!-- Violin -->
         <div class="course-card">
-          <div class="course-icon-wrap">🎻</div>
-          <div class="course-name">Violin Virtuosity</div>
+          <div class="course-name">🎻 Violin Virtuosity</div>
           <div class="course-meta">
-            <span class="c-badge b-blue">All Levels</span>
-            <span class="c-badge b-purple">12 Months</span>
+            <span class="c-badge">All Levels</span>
+            <span class="c-badge">12 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -595,11 +625,10 @@
 
         <!-- Drums -->
         <div class="course-card">
-          <div class="course-icon-wrap">🥁</div>
-          <div class="course-name">Rhythmic Foundations</div>
+          <div class="course-name">🥁 Rhythmic Foundations</div>
           <div class="course-meta">
-            <span class="c-badge b-blue">All Levels</span>
-            <span class="c-badge b-purple">8 Months</span>
+            <span class="c-badge">All Levels</span>
+            <span class="c-badge">8 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -609,11 +638,10 @@
 
         <!-- Flute -->
         <div class="course-card">
-          <div class="course-icon-wrap">🎶</div>
-          <div class="course-name">Flute Artistry</div>
+          <div class="course-name">🎶 Flute Artistry</div>
           <div class="course-meta">
-            <span class="c-badge b-blue">All Levels</span>
-            <span class="c-badge b-purple">10 Months</span>
+            <span class="c-badge">All Levels</span>
+            <span class="c-badge">10 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -623,11 +651,10 @@
 
         <!-- Keyboard -->
         <div class="course-card">
-          <div class="course-icon-wrap">🎹</div>
-          <div class="course-name">Modern Keyboard</div>
+          <div class="course-name">🎹 Modern Keyboard</div>
           <div class="course-meta">
-            <span class="c-badge b-blue">All Levels</span>
-            <span class="c-badge b-purple">8 Months</span>
+            <span class="c-badge">All Levels</span>
+            <span class="c-badge">8 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -636,11 +663,12 @@
         </div>
       </div>
 
-      <div class="offer-box" style="border-left-color: var(--primary);">
-        <h4>✅ Every Course Includes:</h4>
-        <p>Personalized 1-on-1 pacing, structured progress tracking, semester recitals, and full exam preparation support (ABRSM & Trinity College London).</p>
+      <div class="offer-box" style="margin-bottom: 20px;">
+        <h4 class="serif" style="font-size: 16px; margin-bottom: 8px;">✅ Every Course Includes:</h4>
+        <p style="font-size: 13px;">Personalized 1-on-1 pacing, structured progress tracking, semester recitals, and full exam preparation support (ABRSM & Trinity College London).</p>
       </div>
 
+      <!-- Footer note pushed to bottom by margin-top: auto -->
       <div class="footer-note">Harmonic Learning Studio · Academic Year 2025-26</div>
     </div>
   </div>
@@ -651,22 +679,22 @@
   <div class="page page-break">
     <div class="page-content">
       
-      <div class="page-header" style="margin-bottom: 20px;">
+      <div class="page-header">
         <div class="ph-number">02</div>
         <div>
           <div class="ph-title">Vocals & Theory</div>
           <div class="ph-desc">Find your voice and build your musical intellect</div>
         </div>
       </div>
+      <div class="section-divider"></div>
 
       <div class="course-grid" style="margin-bottom: 30px;">
         <!-- Vocals -->
         <div class="course-card">
-          <div class="course-icon-wrap">🎤</div>
-          <div class="course-name">Classical Vocals</div>
+          <div class="course-name">🎤 Classical Vocals</div>
           <div class="course-meta">
-            <span class="c-badge b-orange">Intermediate</span>
-            <span class="c-badge b-purple">12 Months</span>
+            <span class="c-badge">Intermediate</span>
+            <span class="c-badge">12 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -675,11 +703,10 @@
         </div>
         
         <div class="course-card">
-          <div class="course-icon-wrap">🎙️</div>
-          <div class="course-name">Western Contemporary</div>
+          <div class="course-name">🎙️ Western Contemporary</div>
           <div class="course-meta">
-            <span class="c-badge b-blue">All Levels</span>
-            <span class="c-badge b-purple">8 Months</span>
+            <span class="c-badge">All Levels</span>
+            <span class="c-badge">8 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -688,11 +715,10 @@
         </div>
 
         <div class="course-card">
-          <div class="course-icon-wrap">🎼</div>
-          <div class="course-name">Hindustani Classical</div>
+          <div class="course-name">🎼 Hindustani Classical</div>
           <div class="course-meta">
-            <span class="c-badge b-blue">All Levels</span>
-            <span class="c-badge b-purple">12 Months</span>
+            <span class="c-badge">All Levels</span>
+            <span class="c-badge">12 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -701,11 +727,10 @@
         </div>
 
         <div class="course-card">
-          <div class="course-icon-wrap">🎧</div>
-          <div class="course-name">Vocal Fusion</div>
+          <div class="course-name">🎧 Vocal Fusion</div>
           <div class="course-meta">
-            <span class="c-badge b-orange">Intermediate</span>
-            <span class="c-badge b-purple">6 Months</span>
+            <span class="c-badge">Intermediate</span>
+            <span class="c-badge">6 Months</span>
           </div>
           <div class="course-price">
             <div class="cp-duration">Monthly Fee</div>
@@ -714,18 +739,16 @@
         </div>
       </div>
 
-      <h3 style="font-family:'Montserrat', sans-serif; font-size: 24px; color: var(--dark); margin-bottom: 20px;">Music Theory Programs</h3>
+      <h3 class="serif" style="font-size: 20px; color: var(--navy); margin-bottom: 16px;">Music Theory Programs</h3>
       <div class="course-grid">
         <div class="course-card">
-          <div class="course-icon-wrap">👂</div>
-          <div class="course-name">Ear Training</div>
-          <div class="course-meta"><span class="c-badge b-blue">All Levels</span></div>
+          <div class="course-name">👂 Ear Training</div>
+          <div class="course-meta"><span class="c-badge">All Levels</span></div>
           <div class="course-price"><div class="cp-duration">Monthly Fee</div><div class="cp-amount">₹4,500</div></div>
         </div>
         <div class="course-card">
-          <div class="course-icon-wrap">📝</div>
-          <div class="course-name">Harmony & Counterpoint</div>
-          <div class="course-meta"><span class="c-badge b-orange">Intermediate</span></div>
+          <div class="course-name">📝 Harmony & Counterpoint</div>
+          <div class="course-meta"><span class="c-badge">Intermediate</span></div>
           <div class="course-price"><div class="cp-duration">Monthly Fee</div><div class="cp-amount">₹4,500</div></div>
         </div>
       </div>
@@ -747,6 +770,7 @@
           <div class="ph-desc">Simple pricing. Huge value additions for committed students.</div>
         </div>
       </div>
+      <div class="section-divider"></div>
 
       <div class="package-grid">
         <!-- Monthly -->
@@ -781,7 +805,7 @@
           <div class="pkg-name">Half-Yearly Plan</div>
           <div class="pkg-price">₹27,000</div>
           <div class="pkg-calc">₹4,500 / month</div>
-          <div class="pkg-bonus" style="background: var(--primary-light); color: var(--primary);">🎁 Zero Reg. Fee & More</div>
+          <div class="pkg-bonus">🎁 Zero Reg. Fee & More</div>
           <div class="pkg-features">
             <div>Priority scheduling</div>
             <div>2 free masterclasses</div>
@@ -791,7 +815,7 @@
         </div>
       </div>
 
-      <h3 style="font-family:'Montserrat', sans-serif; font-size: 24px; color: var(--dark); margin-bottom: 20px;">Exclusive Member Offers</h3>
+      <h3 class="serif" style="font-size: 20px; color: var(--navy); margin-bottom: 16px;">Exclusive Member Offers</h3>
       <div class="offers-grid">
         <div class="offer-box">
           <h4>👨‍👩‍👧‍👦 Sibling Bonus</h4>
@@ -828,6 +852,7 @@
           <div class="ph-desc">Everything you need to begin your musical journey</div>
         </div>
       </div>
+      <div class="section-divider"></div>
 
       <table class="modern-table">
         <thead>
@@ -866,7 +891,7 @@
         </tbody>
       </table>
 
-      <h3 style="font-family:'Montserrat', sans-serif; font-size: 24px; color: var(--dark); margin-bottom: 24px; text-align: center;">How to get started</h3>
+      <h3 class="serif" style="font-size: 24px; color: var(--navy); margin-bottom: 24px; text-align: center;">How to get started</h3>
       
       <div class="step-grid">
         <div class="step-card">
@@ -900,7 +925,7 @@
         </div>
       </div>
 
-      <div class="footer-note" style="margin-top: 30px; text-align: center;">
+      <div class="footer-note" style="margin-top: 30px;">
         Registration Fee: ₹500 (One-time). All fees are payable in advance.<br/>
         © 2025 Harmonic Learning Studio. All rights reserved.
       </div>
