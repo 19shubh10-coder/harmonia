@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Harmonic Learning Studio — Course Catalog 2025–26</title>
+  <meta charset="UTF-8">
+  <title>Harmonic Learning Studio - Modern Course Catalog</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&family=Nunito:wght@400;600;700;800&display=swap');
 
     :root {
-      --navy: #0f1628;
-      --navy2: #1a2344;
-      --gold: #c9a84c;
-      --gold2: #e8c76a;
-      --gold-light: #fdf8ec;
-      --cream: #fffdf7;
-      --dark: #1a1a2e;
-      --muted: #64748b;
-      --bg: #ffffff;
-      --surface: #f8fafc;
+      --primary: #4338ca;      /* Deep Indigo */
+      --primary-light: #e0e7ff;
+      --secondary: #f43f5e;    /* Vibrant Rose/Coral */
+      --secondary-light: #ffe4e6;
+      --dark: #0f172a;         /* Slate 900 */
+      --text: #334155;         /* Slate 700 */
+      --muted: #64748b;        /* Slate 500 */
+      --bg: #f8fafc;           /* Slate 50 */
+      --white: #ffffff;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      color: var(--dark);
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
       background: var(--bg);
       line-height: 1.6;
       -webkit-print-color-adjust: exact;
@@ -31,1057 +30,883 @@
     }
 
     @page { size: A4; margin: 0; }
-
+    
     @media print {
       .page-break { page-break-before: always; }
       .no-break { page-break-inside: avoid; }
     }
 
-    /* ============================================================
-       COVER PAGE
-    ============================================================ */
-    .cover {
-      width: 210mm;
-      min-height: 297mm;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      background: var(--navy);
-    }
-
-    .cover-bg-arc1 {
-      position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
-      top: -200px; right: -200px;
-      pointer-events: none;
-    }
-    .cover-bg-arc2 {
-      position: absolute;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%);
-      bottom: 50px; left: -100px;
-      pointer-events: none;
-    }
-    .cover-bg-lines {
-      position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(
-        0deg, transparent, transparent 38px,
-        rgba(255,255,255,0.02) 38px, rgba(255,255,255,0.02) 40px
-      );
-    }
-
-    .cover-top-stripe {
-      height: 6px;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--gold2) 50%, var(--gold) 100%);
-    }
-
-    .cover-header {
-      padding: 36px 50px 0;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      position: relative;
-    }
-
-    .cover-logo-wrap {
-      width: 60px; height: 60px;
-      border-radius: 50%;
-      border: 2px solid var(--gold);
-      overflow: hidden;
-      flex-shrink: 0;
-      background: var(--navy2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px;
-    }
-
-    .cover-studio-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      color: rgba(255,255,255,0.9);
-    }
-
-    .cover-studio-sub {
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-top: 2px;
-    }
-
-    .cover-hero {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 40px 50px;
-      position: relative;
-    }
-
-    .cover-eyebrow {
-      font-size: 11px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .cover-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 30px; height: 1px;
-      background: var(--gold);
-    }
-
-    .cover-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 54px;
-      font-weight: 700;
-      color: white;
-      line-height: 1.1;
-      margin-bottom: 6px;
-    }
-    .cover-title span { color: var(--gold); font-style: italic; }
-
-    .cover-subtitle {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 40px;
-    }
-
-    .cover-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 44px;
-    }
-    .cover-pill {
-      padding: 7px 18px;
-      border: 1px solid rgba(201,168,76,0.4);
-      border-radius: 30px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.75);
-      background: rgba(201,168,76,0.08);
-    }
-    .cover-pill.active {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--navy);
-      font-weight: 600;
-    }
-
-    .cover-stats {
-      display: flex;
-      gap: 0;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 14px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.04);
-      margin-bottom: 50px;
-    }
-    .cover-stat {
-      flex: 1;
-      padding: 20px 16px;
-      text-align: center;
-      border-right: 1px solid rgba(255,255,255,0.08);
-    }
-    .cover-stat:last-child { border-right: none; }
-    .cover-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    .cover-stat-label {
-      font-size: 11px;
-      color: rgba(255,255,255,0.5);
-      margin-top: 2px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .cover-contact-strip {
-      background: rgba(255,255,255,0.05);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 20px 50px;
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .cover-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.6);
-    }
-    .cover-contact-item span.icon { color: var(--gold); font-size: 14px; }
-
-    .cover-bottom-stripe {
-      height: 4px;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--gold2) 50%, var(--gold) 100%);
-    }
-
-    .cover-year-badge {
-      position: absolute;
-      top: 36px; right: 50px;
-      background: rgba(201,168,76,0.15);
-      border: 1px solid rgba(201,168,76,0.3);
-      border-radius: 8px;
-      padding: 8px 16px;
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* ============================================================
-       INNER PAGES
-    ============================================================ */
     .page {
       width: 210mm;
-      padding: 30px 40px;
-      background: white;
+      min-height: 297mm;
+      background: var(--white);
       position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
-    .page::before {
-      content: '';
-      display: block;
-      height: 4px;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--gold2) 60%, transparent 100%);
-      margin-bottom: 28px;
-      border-radius: 2px;
+    .page-content {
+      padding: 40px 50px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      z-index: 2;
     }
 
-    .page-watermark {
+    /* =========================================
+       COVER PAGE
+       ========================================= */
+    .cover-bg {
       position: absolute;
-      bottom: 30px; right: 40px;
-      font-size: 10px;
-      color: rgba(0,0,0,0.12);
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: var(--bg);
+      z-index: 1;
     }
-
-    .page-footer-line {
-      margin-top: 24px;
-      padding-top: 12px;
-      border-top: 1px solid #e5e7eb;
+    .cover-shape-1 {
+      position: absolute;
+      top: -20%; right: -20%;
+      width: 80%; height: 80%;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0.05;
+    }
+    .cover-shape-2 {
+      position: absolute;
+      bottom: -10%; left: -20%;
+      width: 60%; height: 60%;
+      background: var(--secondary);
+      border-radius: 50%;
+      opacity: 0.05;
+    }
+    
+    .cover-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 10px;
-      color: #9ca3af;
+      margin-bottom: auto;
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 24px;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-icon {
+      width: 48px; height: 48px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
     }
 
-    .section-heading {
-      display: flex;
-      align-items: flex-end;
-      gap: 16px;
+    .cover-main {
+      margin: auto 0;
+    }
+    .cover-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--secondary);
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 14px;
       margin-bottom: 20px;
     }
-    .section-icon {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
+    .cover-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 24px;
+      letter-spacing: -2px;
+    }
+    .cover-title span { color: var(--primary); }
+    .cover-desc {
       font-size: 20px;
-      flex-shrink: 0;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.2;
-    }
-    .section-subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
-    .section-bar { width: 40px; height: 3px; background: var(--gold); border-radius: 2px; margin-bottom: 20px; }
-
-    /* ============================================================
-       PRICING TABLE
-    ============================================================ */
-    .price-table-wrap {
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
-      margin-bottom: 22px;
-    }
-
-    .price-table-title {
-      background: linear-gradient(90deg, var(--navy) 0%, var(--navy2) 100%);
-      color: white;
-      padding: 12px 20px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    .pricing-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12.5px;
-      background: white;
-    }
-
-    .pricing-table thead th {
-      background: var(--gold-light);
-      color: var(--navy);
-      padding: 9px 16px;
-      text-align: left;
-      font-weight: 700;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      border-bottom: 2px solid var(--gold);
-    }
-
-    .pricing-table tbody td {
-      padding: 11px 16px;
-      border-bottom: 1px solid #f1f5f9;
-      vertical-align: middle;
-    }
-
-    .pricing-table tbody tr:last-child td { border-bottom: none; }
-    .pricing-table tbody tr:nth-child(even) { background: #fafbfc; }
-
-    .course-name { font-weight: 600; color: var(--navy); font-size: 13px; }
-
-    .price-original {
-      font-size: 11px;
-      color: #94a3b8;
-      text-decoration: line-through;
-      display: block;
-      margin-bottom: 1px;
-    }
-    .price-offer {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    .price-save-tag {
-      display: inline-block;
-      background: #dcfce7;
-      color: #166534;
-      font-size: 9px;
-      font-weight: 700;
-      padding: 1px 7px;
-      border-radius: 10px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-
-    .level-badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-size: 10px;
+      color: var(--muted);
+      max-width: 80%;
       font-weight: 600;
     }
-    .level-all { background: #e0f2fe; color: #0369a1; }
-    .level-int { background: #fef3c7; color: #92400e; }
-    .level-adv { background: #fce7f3; color: #9d174d; }
 
-    /* ============================================================
-       PACKAGE CARDS
-    ============================================================ */
-    .packages-grid {
+    .cover-footer {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-bottom: 22px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: auto;
+      padding-top: 40px;
+      border-top: 2px solid var(--gray-light);
     }
-
-    .package-card {
-      border: 1.5px solid #e2e8f0;
-      border-radius: 16px;
-      padding: 22px 16px;
-      text-align: center;
-      position: relative;
-      background: white;
-    }
-
-    .package-card.featured {
-      border-color: var(--gold);
-      background: linear-gradient(180deg, #fffbf0 0%, white 60%);
-      box-shadow: 0 4px 20px rgba(201,168,76,0.15);
-    }
-
-    .featured-badge {
-      position: absolute;
-      top: -11px; left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(90deg, var(--gold) 0%, var(--gold2) 100%);
-      color: var(--navy);
-      font-size: 9px;
-      font-weight: 800;
-      padding: 3px 14px;
-      border-radius: 20px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .package-duration { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
-    .package-price-big {
-      font-family: 'Playfair Display', serif;
-      font-size: 30px;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: 2px;
-    }
-    .package-price-unit { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
-    .package-save-pill {
-      display: inline-block;
-      background: #dcfce7;
-      color: #166534;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-    }
-    .package-features { font-size: 11px; color: var(--muted); line-height: 2; }
-    .package-features li { list-style: none; }
-    .package-features li::before { content: '✓ '; color: var(--gold); font-weight: 700; }
-
-    /* ============================================================
-       OFFERS
-    ============================================================ */
-    .offers-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 22px;
-    }
-
-    .offer-card {
-      border-radius: 12px;
-      padding: 16px 18px;
-      background: linear-gradient(135deg, var(--gold-light) 0%, #fffdf7 100%);
-      border: 1px solid rgba(201,168,76,0.25);
-    }
-
-    .offer-badge {
-      display: inline-block;
-      background: var(--navy);
-      color: var(--gold);
-      font-size: 9px;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 4px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .offer-card h4 { font-size: 13px; color: var(--navy); font-weight: 700; margin-bottom: 4px; }
-    .offer-card p { font-size: 11px; color: var(--muted); line-height: 1.6; }
-
-    /* ============================================================
-       SCHEDULE / INFO
-    ============================================================ */
-    .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      margin-bottom: 22px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-    }
-    .schedule-table th {
-      background: var(--navy);
-      color: white;
-      padding: 10px 16px;
-      text-align: left;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-    .schedule-table td { padding: 10px 16px; border-bottom: 1px solid #f1f5f9; background: white; }
-    .schedule-table tr:last-child td { border-bottom: none; }
-    .schedule-table tr:nth-child(even) td { background: #fafbfc; }
-
-    .info-box {
-      background: var(--surface);
-      border-left: 4px solid var(--gold);
-      padding: 14px 18px;
-      border-radius: 0 10px 10px 0;
-      margin-bottom: 14px;
-      font-size: 12px;
-    }
-    .info-box h4 { color: var(--navy); font-weight: 700; font-size: 13px; margin-bottom: 6px; }
-    .info-box p, .info-box ul { color: var(--muted); font-size: 11.5px; }
-    .info-box ul { padding-left: 16px; margin-top: 6px; }
-    .info-box ul li { margin-bottom: 3px; }
-
-    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
-    .cert-card { border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 18px; background: white; }
-    .cert-card h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-    .cert-card p { font-size: 11px; color: var(--muted); line-height: 1.7; }
-
-    /* ============================================================
-       STEPS
-    ============================================================ */
-    .steps {
+    .cf-item {
       display: flex;
-      gap: 0;
-      margin-bottom: 22px;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 14px;
-      overflow: hidden;
+      flex-direction: column;
+      gap: 4px;
     }
-    .step {
-      flex: 1;
-      text-align: center;
-      padding: 22px 14px;
-      border-right: 1px solid #e2e8f0;
-      background: white;
+    .cf-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      font-weight: 700;
     }
-    .step:last-child { border-right: none; }
-    .step-number {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
-      color: var(--navy);
-      font-weight: 800;
-      font-size: 16px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 10px;
+    .cf-val {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
     }
-    .step h4 { font-size: 12px; color: var(--navy); font-weight: 700; margin-bottom: 4px; }
-    .step p { font-size: 10.5px; color: var(--muted); line-height: 1.5; }
 
-    /* ============================================================
-       CTA FOOTER
-    ============================================================ */
-    .cta-footer { border-radius: 16px; overflow: hidden; margin-top: 22px; }
-    .cta-footer-top {
-      background: linear-gradient(135deg, var(--navy) 0%, #1e2d5e 100%);
-      padding: 28px 30px;
-      text-align: center;
+    /* =========================================
+       TYPOGRAPHY & HEADERS (INNER PAGES)
+       ========================================= */
+    .page-header {
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
-    .cta-footer-top h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      color: var(--gold);
+    .ph-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 64px;
+      font-weight: 900;
+      color: var(--primary-light);
+      line-height: 0.8;
+    }
+    .ph-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -1px;
+    }
+    .ph-desc {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* =========================================
+       CARDS GRID (COURSES)
+       ========================================= */
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    
+    .course-card {
+      background: var(--bg);
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid var(--gray-light);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .course-icon-wrap {
+      width: 50px; height: 50px;
+      background: var(--white);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
       margin-bottom: 16px;
     }
-    .cta-footer-contacts {
+    
+    .course-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    
+    .course-meta {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .c-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .b-blue { background: #dbeafe; color: #1e3a8a; }
+    .b-purple { background: #f3e8ff; color: #581c87; }
+    .b-orange { background: #ffedd5; color: #9a3412; }
+
+    .course-price {
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px dashed var(--gray-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cp-amount {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--primary);
+    }
+    .cp-duration {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* =========================================
+       PRICING PACKAGES
+       ========================================= */
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .pkg-card {
+      background: var(--white);
+      border: 2px solid var(--gray-light);
+      border-radius: 24px;
+      padding: 30px 24px;
+      text-align: center;
+      position: relative;
+    }
+    .pkg-card.highlight {
+      border-color: var(--primary);
+      box-shadow: 0 20px 25px -5px rgba(67, 56, 202, 0.1);
+      transform: scale(1.02);
+    }
+    .pkg-badge {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .pkg-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .pkg-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pkg-price span { font-size: 16px; color: var(--muted); font-weight: 600; }
+    .pkg-calc {
+      font-size: 12px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .pkg-bonus {
+      background: var(--secondary-light);
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .pkg-features {
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .pkg-features div {
+      margin-bottom: 10px;
+      display: flex;
+      gap: 8px;
+    }
+    .pkg-features div::before {
+      content: '✓';
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    /* =========================================
+       VALUE ADD OFFERS (GRID)
+       ========================================= */
+    .offers-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .offer-box {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 20px;
+      border-left: 4px solid var(--secondary);
+    }
+    .offer-box h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .offer-box p {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* =========================================
+       SCHEDULE & MISC
+       ========================================= */
+    .modern-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--gray-light);
+      margin-bottom: 30px;
+    }
+    .modern-table th {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 16px;
+      text-align: left;
+      border-bottom: 2px solid var(--gray-light);
+    }
+    .modern-table td {
+      padding: 16px;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-light);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .modern-table tr:last-child td { border-bottom: none; }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .step-card {
+      text-align: center;
+    }
+    .step-num {
+      width: 48px; height: 48px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step-card h4 {
+      font-size: 15px;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .step-card p {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .cta-box {
+      background: var(--primary);
+      border-radius: 24px;
+      padding: 40px;
+      text-align: center;
+      color: var(--white);
+    }
+    .cta-box h3 {
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .cta-box p {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+    .cta-flex {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+      gap: 40px;
+      font-weight: 700;
+      font-size: 14px;
     }
-    .cta-contact-item {
+    .cta-flex span {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.75);
-    }
-    .cta-contact-item .ci { color: var(--gold); font-size: 15px; }
-    .cta-contact-item a { color: rgba(255,255,255,0.75); text-decoration: none; }
-    .cta-footer-bottom {
-      background: var(--gold);
-      padding: 10px 30px;
-      text-align: center;
-      font-size: 10px;
-      color: var(--navy);
-      font-weight: 600;
     }
 
-    .terms { font-size: 9.5px; color: #9ca3af; margin-top: 18px; text-align: center; line-height: 1.9; }
+    .footer-note {
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: auto;
+      padding-top: 20px;
+    }
   </style>
 </head>
 <body>
 
-<!-- COVER PAGE -->
-<div class="cover">
-  <div class="cover-bg-arc1"></div>
-  <div class="cover-bg-arc2"></div>
-  <div class="cover-bg-lines"></div>
-  <div class="cover-top-stripe"></div>
-
-  <div class="cover-header">
-    <div class="cover-logo-wrap">🎵</div>
-    <div>
-      <div class="cover-studio-name">Harmonic Learning Studio</div>
-      <div class="cover-studio-sub">Music Education Excellence</div>
+  <!-- ====================================================
+       PAGE 1: COVER
+       ==================================================== -->
+  <div class="page">
+    <div class="cover-bg">
+      <div class="cover-shape-1"></div>
+      <div class="cover-shape-2"></div>
     </div>
-    <div class="cover-year-badge">2025 – 26</div>
-  </div>
-
-  <div class="cover-hero">
-    <div class="cover-eyebrow">Official Course Catalog</div>
-    <div class="cover-title">Discover the<br/>Art of <span>Music.</span></div>
-    <div class="cover-subtitle">Programs, Pricing &amp; Everything You Need to Know</div>
-
-    <div class="cover-pills">
-      <span class="cover-pill active">🎹 Piano</span>
-      <span class="cover-pill">🎸 Guitar</span>
-      <span class="cover-pill">🎻 Violin</span>
-      <span class="cover-pill">🥁 Drums</span>
-      <span class="cover-pill">🎶 Flute</span>
-      <span class="cover-pill">🎤 Vocals</span>
-      <span class="cover-pill">🎼 Theory</span>
-    </div>
-
-    <div class="cover-stats">
-      <div class="cover-stat">
-        <div class="cover-stat-num">13+</div>
-        <div class="cover-stat-label">Courses</div>
+    
+    <div class="page-content">
+      <div class="cover-header">
+        <div class="logo">
+          <div class="logo-icon">🎵</div>
+          Harmonic Learning Studio
+        </div>
+        <div class="cf-label" style="background: var(--white); padding: 8px 16px; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+          Course Catalog 2025-26
+        </div>
       </div>
-      <div class="cover-stat">
-        <div class="cover-stat-num">3</div>
-        <div class="cover-stat-label">Categories</div>
+
+      <div class="cover-main">
+        <div class="cover-eyebrow">Discover Your Sound</div>
+        <div class="cover-title">
+          MUSIC<br/>
+          <span>REIMAGINED.</span>
+        </div>
+        <div class="cover-desc">
+          Professional, one-on-one music education tailored to your goals. Honest pricing, exceptional value.
+        </div>
       </div>
-      <div class="cover-stat">
-        <div class="cover-stat-num">1:1</div>
-        <div class="cover-stat-label">Instruction</div>
-      </div>
-      <div class="cover-stat">
-        <div class="cover-stat-num">FREE</div>
-        <div class="cover-stat-label">Trial Class</div>
-      </div>
-    </div>
-  </div>
 
-  <div class="cover-contact-strip">
-    <div class="cover-contact-item"><span class="icon">📞</span><span>+91 7906112586</span></div>
-    <div class="cover-contact-item"><span class="icon">✉️</span><span>divyanshu@harmoniclearningstudio.com</span></div>
-    <div class="cover-contact-item"><span class="icon">🌐</span><span>www.harmoniclearningstudio.com</span></div>
-    <div class="cover-contact-item"><span class="icon">📸</span><span>@harmonic.learning</span></div>
-  </div>
-  <div class="cover-bottom-stripe"></div>
-</div>
-
-
-<!-- PAGE 2: INSTRUMENTAL COURSES -->
-<div class="page page-break">
-  <div class="section-heading">
-    <div class="section-icon">🎸</div>
-    <div>
-      <div class="section-title">Instrumental Courses</div>
-      <div class="section-subtitle">One-on-one instruction across all popular instruments</div>
-    </div>
-  </div>
-  <div class="section-bar"></div>
-
-  <div class="price-table-wrap">
-    <div class="price-table-title">🎵 Instrumental Programs — All Levels Welcome</div>
-    <table class="pricing-table">
-      <thead>
-        <tr>
-          <th>Course</th><th>Level</th><th>Duration</th><th>Regular Fee</th><th>Special Offer</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="course-name">Piano Mastery</td>
-          <td><span class="level-badge level-all">All Levels</span></td>
-          <td>12 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Guitar Excellence</td>
-          <td><span class="level-badge level-all">All Levels</span></td>
-          <td>10 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Violin Virtuosity</td>
-          <td><span class="level-badge level-all">All Levels</span></td>
-          <td>12 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Rhythmic Foundations (Drums)</td>
-          <td><span class="level-badge level-all">All Levels</span></td>
-          <td>8 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Flute Artistry</td>
-          <td><span class="level-badge level-all">All Levels</span></td>
-          <td>10 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Modern Keyboard</td>
-          <td><span class="level-badge level-all">All Levels</span></td>
-          <td>8 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="info-box">
-    <h4>✅ Included in Every Instrumental Course</h4>
-    <ul>
-      <li>One-on-one personalized instruction tailored to your pace</li>
-      <li>Structured curriculum with monthly progress tracking</li>
-      <li>Recital and showcase performance opportunities every semester</li>
-      <li>Exam preparation support — ABRSM &amp; Trinity College London</li>
-    </ul>
-  </div>
-
-  <div class="page-watermark">Harmonic Learning Studio · 2025–26</div>
-  <div class="page-footer-line">
-    <span>© 2025 Harmonic Learning Studio</span>
-    <span>www.harmoniclearningstudio.com</span>
-  </div>
-</div>
-
-
-<!-- PAGE 3: VOCAL & THEORY -->
-<div class="page page-break">
-  <div class="section-heading">
-    <div class="section-icon">🎤</div>
-    <div>
-      <div class="section-title">Vocal Programs</div>
-      <div class="section-subtitle">Classical, contemporary, and fusion vocal training</div>
-    </div>
-  </div>
-  <div class="section-bar"></div>
-
-  <div class="price-table-wrap">
-    <div class="price-table-title">🎤 Vocal Programs</div>
-    <table class="pricing-table">
-      <thead>
-        <tr><th>Course</th><th>Level</th><th>Duration</th><th>Regular Fee</th><th>Special Offer</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="course-name">Classical Vocal Training</td>
-          <td><span class="level-badge level-int">Intermediate</span></td>
-          <td>12 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Western Contemporary Vocals</td>
-          <td><span class="level-badge level-all">All Levels</span></td>
-          <td>8 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Hindustani Classical Vocal</td>
-          <td><span class="level-badge level-all">All Levels</span></td>
-          <td>12 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Contemporary Vocal Fusion</td>
-          <td><span class="level-badge level-int">Intermediate</span></td>
-          <td>6 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="section-heading" style="margin-top:22px;">
-    <div class="section-icon">📖</div>
-    <div>
-      <div class="section-title">Music Theory</div>
-      <div class="section-subtitle">Build the intellectual foundation of your musicianship</div>
-    </div>
-  </div>
-  <div class="section-bar"></div>
-
-  <div class="price-table-wrap">
-    <div class="price-table-title">📖 Music Theory Programs</div>
-    <table class="pricing-table">
-      <thead>
-        <tr><th>Course</th><th>Level</th><th>Duration</th><th>Regular Fee</th><th>Special Offer</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="course-name">Ear Training &amp; Aural Skills</td>
-          <td><span class="level-badge level-all">All Levels</span></td>
-          <td>6 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Harmony &amp; Counterpoint</td>
-          <td><span class="level-badge level-int">Intermediate</span></td>
-          <td>8 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-        <tr>
-          <td class="course-name">Music Composition</td>
-          <td><span class="level-badge level-adv">Advanced</span></td>
-          <td>10 months</td>
-          <td><span class="price-original">₹5,500/mo</span></td>
-          <td><span class="price-offer">₹4,500<small style="font-size:11px;font-weight:400;color:#64748b;">/mo</small></span><span class="price-save-tag">SAVE ₹1,000</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="page-watermark">Harmonic Learning Studio · 2025–26</div>
-  <div class="page-footer-line">
-    <span>© 2025 Harmonic Learning Studio</span>
-    <span>www.harmoniclearningstudio.com</span>
-  </div>
-</div>
-
-
-<!-- PAGE 4: PACKAGES & OFFERS -->
-<div class="page page-break">
-  <div class="section-heading">
-    <div class="section-icon">💰</div>
-    <div>
-      <div class="section-title">Subscription Packages</div>
-      <div class="section-subtitle">Lock in your rate and unlock exclusive bonuses</div>
-    </div>
-  </div>
-  <div class="section-bar"></div>
-
-  <div class="packages-grid">
-    <div class="package-card no-break">
-      <div class="package-duration">Monthly</div>
-      <div class="package-price-big">₹4,500</div>
-      <div class="package-price-unit">per month · pay as you go</div>
-      <ul class="package-features">
-        <li>Full flexibility</li>
-        <li>Cancel anytime</li>
-        <li>4 sessions/month</li>
-      </ul>
-    </div>
-    <div class="package-card featured no-break">
-      <div class="featured-badge">⭐ Added Value</div>
-      <div class="package-duration">3-Month Package</div>
-      <div class="package-price-big">₹13,500</div>
-      <div class="package-price-unit">₹4,500/month effective</div>
-      <div class="package-save-pill">Bonus: 1 Free Masterclass</div>
-      <ul class="package-features">
-        <li>Priority scheduling</li>
-        <li>1 free masterclass included</li>
-        <li>12 sessions total</li>
-      </ul>
-    </div>
-    <div class="package-card no-break">
-      <div class="package-duration">6-Month Package</div>
-      <div class="package-price-big">₹27,000</div>
-      <div class="package-price-unit">₹4,500/month effective</div>
-      <div class="package-save-pill">Bonus: Waived Reg. Fee</div>
-      <ul class="package-features">
-        <li>Priority scheduling</li>
-        <li>2 free masterclasses</li>
-        <li>Zero Registration Fee</li>
-        <li>24 sessions total</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section-heading" style="margin-top:10px;">
-    <div class="section-icon">🎁</div>
-    <div>
-      <div class="section-title">Special Value-Add Offers</div>
-      <div class="section-subtitle">Extra benefits on top of our discounted prices</div>
-    </div>
-  </div>
-  <div class="section-bar"></div>
-
-  <div class="offers-grid">
-    <div class="offer-card no-break">
-      <div class="offer-badge">Sibling Bonus</div>
-      <h4>Free Registration &amp; Extra Session</h4>
-      <p>Enroll two or more siblings and get free registration plus 1 bonus session for each.</p>
-    </div>
-    <div class="offer-card no-break">
-      <div class="offer-badge">Early Bird</div>
-      <h4>Free Study Materials</h4>
-      <p>New students enrolling within 7 days of their trial class receive a free welcome kit and study materials.</p>
-    </div>
-    <div class="offer-card no-break">
-      <div class="offer-badge">Referral Bonus</div>
-      <h4>1 Free Extra Class</h4>
-      <p>Refer a friend who enrolls — both you and your friend get 1 free extra class.</p>
-    </div>
-    <div class="offer-card no-break">
-      <div class="offer-badge">Multi-Course</div>
-      <h4>Free Practice Access</h4>
-      <p>Enroll in two courses simultaneously and get unlimited free access to our practice rooms.</p>
-    </div>
-  </div>
-
-  <div class="info-box no-break">
-    <h4>📌 Payment Information</h4>
-    <ul>
-      <li>Fees payable in advance at the start of each billing cycle</li>
-      <li>Accepted: UPI · Net Banking · Cash · Cheque</li>
-      <li>Package fees are non-refundable but transferable to another course</li>
-      <li>One-time registration fee: ₹500 (waived for 6-month package)</li>
-    </ul>
-  </div>
-
-  <div class="page-watermark">Harmonic Learning Studio · 2025–26</div>
-  <div class="page-footer-line">
-    <span>© 2025 Harmonic Learning Studio</span>
-    <span>www.harmoniclearningstudio.com</span>
-  </div>
-</div>
-
-
-<!-- PAGE 5: SCHEDULE & CERTIFICATIONS -->
-<div class="page page-break">
-  <div class="section-heading">
-    <div class="section-icon">📅</div>
-    <div>
-      <div class="section-title">Class Schedule</div>
-      <div class="section-subtitle">Flexible weekday and weekend batches for all age groups</div>
-    </div>
-  </div>
-  <div class="section-bar"></div>
-
-  <table class="schedule-table no-break">
-    <thead>
-      <tr><th>Batch</th><th>Days</th><th>Timings</th><th>Session Duration</th></tr>
-    </thead>
-    <tbody>
-      <tr><td><strong>Morning Batch</strong></td><td>Mon – Sat</td><td>8:00 AM – 12:00 PM</td><td>45 – 60 min</td></tr>
-      <tr><td><strong>Afternoon Batch</strong></td><td>Mon – Sat</td><td>2:00 PM – 5:00 PM</td><td>45 – 60 min</td></tr>
-      <tr><td><strong>Evening Batch</strong></td><td>Mon – Sat</td><td>5:00 PM – 8:00 PM</td><td>45 – 60 min</td></tr>
-      <tr><td><strong>Weekend Batch</strong></td><td>Sat &amp; Sun</td><td>9:00 AM – 6:00 PM</td><td>60 min</td></tr>
-    </tbody>
-  </table>
-
-  <div class="info-box no-break">
-    <h4>ℹ️ Schedule Notes</h4>
-    <ul>
-      <li>4 sessions per month (1 session/week)</li>
-      <li>Day &amp; time slot assigned upon enrollment based on availability</li>
-      <li>Missed classes reschedulable with 24-hour prior notice</li>
-      <li>Extra sessions available at ₹800/session</li>
-    </ul>
-  </div>
-
-  <div class="section-heading" style="margin-top:20px;">
-    <div class="section-icon">🏆</div>
-    <div>
-      <div class="section-title">Certifications &amp; Exams</div>
-      <div class="section-subtitle">Internationally recognized — preparation included in all courses</div>
-    </div>
-  </div>
-  <div class="section-bar"></div>
-
-  <div class="cert-grid">
-    <div class="cert-card no-break">
-      <h4>Trinity College London</h4>
-      <p>We prepare students for Trinity Graded Examinations in Music (Grades 1–8) and Diplomas. Curriculum aligns with Trinity syllabi across all instruments and vocals.</p>
-    </div>
-    <div class="cert-card no-break">
-      <h4>ABRSM</h4>
-      <p>Prepare for ABRSM Practical and Theory exams (Grades 1–8). Faculty guides students through repertoire, aural training, scales, and sight-reading requirements.</p>
-    </div>
-  </div>
-
-  <div class="info-box no-break">
-    <h4>📋 Exam preparation included in all courses at no extra cost.</h4>
-    <p>Exam registration fees are paid separately directly to the examination board.</p>
-  </div>
-
-  <div class="page-watermark">Harmonic Learning Studio · 2025–26</div>
-  <div class="page-footer-line">
-    <span>© 2025 Harmonic Learning Studio</span>
-    <span>www.harmoniclearningstudio.com</span>
-  </div>
-</div>
-
-
-<!-- PAGE 6: ENROLLMENT & CONTACT -->
-<div class="page page-break">
-  <div class="section-heading">
-    <div class="section-icon">📝</div>
-    <div>
-      <div class="section-title">How to Enroll</div>
-      <div class="section-subtitle">Getting started takes just 4 simple steps</div>
-    </div>
-  </div>
-  <div class="section-bar"></div>
-
-  <div class="steps no-break">
-    <div class="step">
-      <div class="step-number">1</div>
-      <h4>Book a Trial</h4>
-      <p>Schedule a free trial class — no cost, no commitment.</p>
-    </div>
-    <div class="step">
-      <div class="step-number">2</div>
-      <h4>Choose a Course</h4>
-      <p>Pick your instrument or program and preferred batch.</p>
-    </div>
-    <div class="step">
-      <div class="step-number">3</div>
-      <h4>Pick a Package</h4>
-      <p>Monthly, 3-month, or 6-month plan.</p>
-    </div>
-    <div class="step">
-      <div class="step-number">4</div>
-      <h4>Start Learning!</h4>
-      <p>Complete registration &amp; payment and begin your journey.</p>
-    </div>
-  </div>
-
-  <div class="info-box no-break">
-    <h4>🎵 Free Trial Class — For Every New Student</h4>
-    <p>Experience our teaching style and discuss your musical goals — completely free, zero obligation.</p>
-  </div>
-
-  <div class="info-box no-break">
-    <h4>📄 What to Bring for Registration</h4>
-    <ul>
-      <li>One passport-size photograph</li>
-      <li>Aadhar card or any photo ID proof</li>
-      <li>Registration fee: ₹500 (waived for 6-month package)</li>
-    </ul>
-  </div>
-
-  <div class="cta-footer no-break">
-    <div class="cta-footer-top">
-      <h3>Ready to Begin Your Musical Journey?</h3>
-      <div class="cta-footer-contacts">
-        <div class="cta-contact-item"><span class="ci">📞</span><span>+91 7906112586</span></div>
-        <div class="cta-contact-item"><span class="ci">✉️</span><a href="mailto:divyanshu@harmoniclearningstudio.com">divyanshu@harmoniclearningstudio.com</a></div>
-        <div class="cta-contact-item"><span class="ci">🌐</span><a href="https://harmoniclearningstudio.com">www.harmoniclearningstudio.com</a></div>
-        <div class="cta-contact-item"><span class="ci">📸</span><a href="https://www.instagram.com/harmonic.learning/">@harmonic.learning</a></div>
+      <div class="cover-footer">
+        <div class="cf-item">
+          <span class="cf-label">Call Us</span>
+          <span class="cf-val">+91 7906112586</span>
+        </div>
+        <div class="cf-item">
+          <span class="cf-label">Email</span>
+          <span class="cf-val">divyanshu@harmoniclearningstudio.com</span>
+        </div>
+        <div class="cf-item">
+          <span class="cf-label">Website</span>
+          <span class="cf-val">harmoniclearningstudio.com</span>
+        </div>
+        <div class="cf-item">
+          <span class="cf-label">Instagram</span>
+          <span class="cf-val">@harmonic.learning</span>
+        </div>
       </div>
     </div>
-    <div class="cta-footer-bottom">Call or message us to book your FREE trial class today!</div>
   </div>
 
-  <div class="terms">
-    * Prices shown are special introductory offer prices. Regular monthly fee is ₹5,500/month per course.<br/>
-    Prices and offers are subject to change without prior notice. Offers cannot be combined unless specified.<br/>
-    © 2025 Harmonic Learning Studio. All rights reserved. · Academic Year 2025–26
+  <!-- ====================================================
+       PAGE 2: INSTRUMENTAL
+       ==================================================== -->
+  <div class="page page-break">
+    <div class="page-content">
+      
+      <div class="page-header">
+        <div class="ph-number">01</div>
+        <div>
+          <div class="ph-title">Instrumental Mastery</div>
+          <div class="ph-desc">One-on-one instruction for all skill levels</div>
+        </div>
+      </div>
+
+      <div class="course-grid">
+        <!-- Piano -->
+        <div class="course-card">
+          <div class="course-icon-wrap">🎹</div>
+          <div class="course-name">Piano Mastery</div>
+          <div class="course-meta">
+            <span class="c-badge b-blue">All Levels</span>
+            <span class="c-badge b-purple">12 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+        
+        <!-- Guitar -->
+        <div class="course-card">
+          <div class="course-icon-wrap">🎸</div>
+          <div class="course-name">Guitar Excellence</div>
+          <div class="course-meta">
+            <span class="c-badge b-blue">All Levels</span>
+            <span class="c-badge b-purple">10 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+
+        <!-- Violin -->
+        <div class="course-card">
+          <div class="course-icon-wrap">🎻</div>
+          <div class="course-name">Violin Virtuosity</div>
+          <div class="course-meta">
+            <span class="c-badge b-blue">All Levels</span>
+            <span class="c-badge b-purple">12 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+
+        <!-- Drums -->
+        <div class="course-card">
+          <div class="course-icon-wrap">🥁</div>
+          <div class="course-name">Rhythmic Foundations</div>
+          <div class="course-meta">
+            <span class="c-badge b-blue">All Levels</span>
+            <span class="c-badge b-purple">8 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+
+        <!-- Flute -->
+        <div class="course-card">
+          <div class="course-icon-wrap">🎶</div>
+          <div class="course-name">Flute Artistry</div>
+          <div class="course-meta">
+            <span class="c-badge b-blue">All Levels</span>
+            <span class="c-badge b-purple">10 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+
+        <!-- Keyboard -->
+        <div class="course-card">
+          <div class="course-icon-wrap">🎹</div>
+          <div class="course-name">Modern Keyboard</div>
+          <div class="course-meta">
+            <span class="c-badge b-blue">All Levels</span>
+            <span class="c-badge b-purple">8 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="offer-box" style="border-left-color: var(--primary);">
+        <h4>✅ Every Course Includes:</h4>
+        <p>Personalized 1-on-1 pacing, structured progress tracking, semester recitals, and full exam preparation support (ABRSM & Trinity College London).</p>
+      </div>
+
+      <div class="footer-note">Harmonic Learning Studio · Academic Year 2025-26</div>
+    </div>
   </div>
-</div>
+
+  <!-- ====================================================
+       PAGE 3: VOCALS & THEORY
+       ==================================================== -->
+  <div class="page page-break">
+    <div class="page-content">
+      
+      <div class="page-header" style="margin-bottom: 20px;">
+        <div class="ph-number">02</div>
+        <div>
+          <div class="ph-title">Vocals & Theory</div>
+          <div class="ph-desc">Find your voice and build your musical intellect</div>
+        </div>
+      </div>
+
+      <div class="course-grid" style="margin-bottom: 30px;">
+        <!-- Vocals -->
+        <div class="course-card">
+          <div class="course-icon-wrap">🎤</div>
+          <div class="course-name">Classical Vocals</div>
+          <div class="course-meta">
+            <span class="c-badge b-orange">Intermediate</span>
+            <span class="c-badge b-purple">12 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+        
+        <div class="course-card">
+          <div class="course-icon-wrap">🎙️</div>
+          <div class="course-name">Western Contemporary</div>
+          <div class="course-meta">
+            <span class="c-badge b-blue">All Levels</span>
+            <span class="c-badge b-purple">8 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon-wrap">🎼</div>
+          <div class="course-name">Hindustani Classical</div>
+          <div class="course-meta">
+            <span class="c-badge b-blue">All Levels</span>
+            <span class="c-badge b-purple">12 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon-wrap">🎧</div>
+          <div class="course-name">Vocal Fusion</div>
+          <div class="course-meta">
+            <span class="c-badge b-orange">Intermediate</span>
+            <span class="c-badge b-purple">6 Months</span>
+          </div>
+          <div class="course-price">
+            <div class="cp-duration">Monthly Fee</div>
+            <div class="cp-amount">₹4,500</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-family:'Montserrat', sans-serif; font-size: 24px; color: var(--dark); margin-bottom: 20px;">Music Theory Programs</h3>
+      <div class="course-grid">
+        <div class="course-card">
+          <div class="course-icon-wrap">👂</div>
+          <div class="course-name">Ear Training</div>
+          <div class="course-meta"><span class="c-badge b-blue">All Levels</span></div>
+          <div class="course-price"><div class="cp-duration">Monthly Fee</div><div class="cp-amount">₹4,500</div></div>
+        </div>
+        <div class="course-card">
+          <div class="course-icon-wrap">📝</div>
+          <div class="course-name">Harmony & Counterpoint</div>
+          <div class="course-meta"><span class="c-badge b-orange">Intermediate</span></div>
+          <div class="course-price"><div class="cp-duration">Monthly Fee</div><div class="cp-amount">₹4,500</div></div>
+        </div>
+      </div>
+
+      <div class="footer-note">Harmonic Learning Studio · Academic Year 2025-26</div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       PAGE 4: PACKAGES & OFFERS
+       ==================================================== -->
+  <div class="page page-break">
+    <div class="page-content">
+      
+      <div class="page-header">
+        <div class="ph-number">03</div>
+        <div>
+          <div class="ph-title">Plans & Perks</div>
+          <div class="ph-desc">Simple pricing. Huge value additions for committed students.</div>
+        </div>
+      </div>
+
+      <div class="package-grid">
+        <!-- Monthly -->
+        <div class="pkg-card">
+          <div class="pkg-name">Monthly Flex</div>
+          <div class="pkg-price">₹4,500</div>
+          <div class="pkg-calc">Pay as you go</div>
+          <div class="pkg-bonus" style="background: transparent; color: transparent;">-</div>
+          <div class="pkg-features">
+            <div>Full flexibility</div>
+            <div>Cancel anytime</div>
+            <div>4 Sessions total</div>
+          </div>
+        </div>
+
+        <!-- 3 Month -->
+        <div class="pkg-card">
+          <div class="pkg-name">Quarterly Plan</div>
+          <div class="pkg-price">₹13,500</div>
+          <div class="pkg-calc">₹4,500 / month</div>
+          <div class="pkg-bonus">🎁 +1 Free Masterclass</div>
+          <div class="pkg-features">
+            <div>Priority scheduling</div>
+            <div>1 free masterclass</div>
+            <div>12 Sessions total</div>
+          </div>
+        </div>
+
+        <!-- 6 Month -->
+        <div class="pkg-card highlight">
+          <div class="pkg-badge">Most Popular</div>
+          <div class="pkg-name">Half-Yearly Plan</div>
+          <div class="pkg-price">₹27,000</div>
+          <div class="pkg-calc">₹4,500 / month</div>
+          <div class="pkg-bonus" style="background: var(--primary-light); color: var(--primary);">🎁 Zero Reg. Fee & More</div>
+          <div class="pkg-features">
+            <div>Priority scheduling</div>
+            <div>2 free masterclasses</div>
+            <div>Registration Fee Waived</div>
+            <div>24 Sessions total</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-family:'Montserrat', sans-serif; font-size: 24px; color: var(--dark); margin-bottom: 20px;">Exclusive Member Offers</h3>
+      <div class="offers-grid">
+        <div class="offer-box">
+          <h4>👨‍👩‍👧‍👦 Sibling Bonus</h4>
+          <p>Enroll a sibling and get <strong>Free Registration</strong> plus <strong>1 Bonus Session</strong> for each student.</p>
+        </div>
+        <div class="offer-box">
+          <h4>🌅 Early Bird</h4>
+          <p>Enroll within 7 days of your trial class and receive a <strong>Free Welcome Kit & Study Materials</strong>.</p>
+        </div>
+        <div class="offer-box">
+          <h4>🤝 Referral Reward</h4>
+          <p>Refer a friend. When they enroll, <strong>both of you get 1 Free Extra Class</strong> added to your month.</p>
+        </div>
+        <div class="offer-box">
+          <h4>🎸 Multi-Course</h4>
+          <p>Learning two instruments? Get <strong>Unlimited Free Access</strong> to our practice rooms.</p>
+        </div>
+      </div>
+
+      <div class="footer-note">Harmonic Learning Studio · Academic Year 2025-26</div>
+    </div>
+  </div>
+
+  <!-- ====================================================
+       PAGE 5: SCHEDULE & NEXT STEPS
+       ==================================================== -->
+  <div class="page page-break">
+    <div class="page-content">
+      
+      <div class="page-header">
+        <div class="ph-number">04</div>
+        <div>
+          <div class="ph-title">Schedule & Enroll</div>
+          <div class="ph-desc">Everything you need to begin your musical journey</div>
+        </div>
+      </div>
+
+      <table class="modern-table">
+        <thead>
+          <tr>
+            <th>Batch Name</th>
+            <th>Days</th>
+            <th>Timings</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Morning Focus</strong></td>
+            <td>Mon - Sat</td>
+            <td>8:00 AM – 12:00 PM</td>
+            <td>45 – 60 min</td>
+          </tr>
+          <tr>
+            <td><strong>Afternoon Shift</strong></td>
+            <td>Mon - Sat</td>
+            <td>2:00 PM – 5:00 PM</td>
+            <td>45 – 60 min</td>
+          </tr>
+          <tr>
+            <td><strong>Evening Prime</strong></td>
+            <td>Mon - Sat</td>
+            <td>5:00 PM – 8:00 PM</td>
+            <td>45 – 60 min</td>
+          </tr>
+          <tr>
+            <td><strong>Weekend Warriors</strong></td>
+            <td>Sat & Sun</td>
+            <td>9:00 AM – 6:00 PM</td>
+            <td>60 min</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-family:'Montserrat', sans-serif; font-size: 24px; color: var(--dark); margin-bottom: 24px; text-align: center;">How to get started</h3>
+      
+      <div class="step-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h4>Book Trial</h4>
+          <p>Schedule a 100% free, no-obligation trial class.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h4>Choose Course</h4>
+          <p>Pick your instrument and preferred batch timing.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h4>Select Plan</h4>
+          <p>Pick a monthly, 3-month, or 6-month package.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <h4>Play!</h4>
+          <p>Complete registration and begin your journey.</p>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h3>Ready to make some noise?</h3>
+        <p>Join Harmonic Learning Studio today and get your first trial class absolutely free.</p>
+        <div class="cta-flex">
+          <span>📞 +91 7906112586</span>
+          <span>🌐 harmoniclearningstudio.com</span>
+        </div>
+      </div>
+
+      <div class="footer-note" style="margin-top: 30px; text-align: center;">
+        Registration Fee: ₹500 (One-time). All fees are payable in advance.<br/>
+        © 2025 Harmonic Learning Studio. All rights reserved.
+      </div>
+
+    </div>
+  </div>
 
 </body>
 </html>
